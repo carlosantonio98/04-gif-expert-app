@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddCategory } from "./components/AddCategory";
 
 /* Este functional component lo podemos ver como si fuera
 nuestro lienzo, dentro de este vamos a meter los demas
@@ -21,7 +22,8 @@ export const GifExpertApp = () => {
             <h1>GifExpertApp</h1>
             
             {/* Input */}
-            
+            <AddCategory />
+
             {/* Listado de Gifs */}
             <button onClick={onAddCategory}>Agregar</button>
             <ol>
