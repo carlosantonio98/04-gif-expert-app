@@ -11,6 +11,10 @@ export const GifExpertApp = () => {
 
     const onAddCategory = ( newCategory ) => {
         //console.log( newCategory );
+        
+        // Validando si existe
+        if ( categories.map( category => category.toLowerCase()).includes( newCategory.toLowerCase()) ) return;
+        //if ( categories.includes( newCategory ) ) return;
 
         // dos maneras de agregar un nuevo elemento a un array
         setCategories([ newCategory, ...categories ]);       // Metodo 1
