@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
 
 /* Este functional component lo podemos ver como si fuera
 nuestro lienzo, dentro de este vamos a meter los demas
@@ -27,16 +28,29 @@ export const GifExpertApp = () => {
             {/* Titulo */}
             <h1>GifExpertApp</h1>
             
+
+
+
             {/* Input */}
             <AddCategory
                 // setCategories={ setCategories }
                 onNewCategory={ ( value ) => onAddCategory( value ) }
             />
 
+
+
             {/* Listado de Gifs // Nunca se deben de poner los index como clave ya que react se puede confundir si llegases a borrar un elemento de la lista*/}
-            <ol>
-                {  categories.map( category => <li key={ category }>{category}</li> ) }
-            </ol>
+            {   
+                categories.map( category => 
+                    <GifGrid
+                        key={ category }
+                        category={ category } 
+                    /> 
+                )
+            }
+
+
+
                 {/* Gif item */}
 
         </>
