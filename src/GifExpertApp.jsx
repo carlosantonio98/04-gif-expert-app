@@ -8,7 +8,7 @@ componentes para hacer la app*/
 
 export const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState([ 'One Punch', 'Dragon ball']);
+    const [categories, setCategories] = useState([ 'One Punch']);
 
     const onAddCategory = ( newCategory ) => {
         //console.log( newCategory );
@@ -41,12 +41,12 @@ export const GifExpertApp = () => {
 
             {/* Listado de Gifs // Nunca se deben de poner los index como clave ya que react se puede confundir si llegases a borrar un elemento de la lista*/}
             {   
-                categories.map( category => 
+                categories.map( category => (
                     <GifGrid
                         key={ category }
                         category={ category } 
-                    /> 
-                )
+                    />   // el elemento que debe de tener la llave es el elemento que se esta iterando, este es un componente que muestra solamente una categoria
+                ))
             }
 
 
