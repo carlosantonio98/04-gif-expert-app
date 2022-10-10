@@ -1,37 +1,24 @@
-import { useState, useEffect } from 'react';
-
 import { GifItem } from './GifItem';
-import { getGifs } from '../helpers/getGifs';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const GifGrid = ({ category }) => {
     
-    const [images, setImages] = useState([]);
-    
-
-    const getImages = async() => {
-        const newImage = await getGifs( category );
-        setImages( newImage );
-    }
-
-
-    useEffect( () => {
-        
-        getImages();
-        
-    }, []);  // Si dejamos el array de dependencias vació significa que este hook solo se va a disparar la primera ves que se crea y se destruye mi componente
-    
+    // Llamamos al custom hook, este cutom hook hara toda la logica que tenga que ver con obtener las imagenes, ya no tendriamos que escribir toda la logica en este componente sino en otro, esto podra ser utilicizado en cualquier lado.
+    const { images, isLoading } = useFetchGifs( category );
 
     return (
         <>
             <h3>{ category }</h3>
+            {
+                isLoading && ( <h2>Cargando...</h2> )
+            }
 
             <div className='card-grid'>
 
                 { 
                     images.map( ( image ) => (
                         <GifItem 
-                            key={image.id}
-                            // image={image}  
+                            key={image.id} 
                             { ...image }  // usamos el operador spread para exparsir todas las propiedades
                         />
                     ))
