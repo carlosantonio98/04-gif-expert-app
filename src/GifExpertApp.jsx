@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GifGrid } from "./components/GifGrid";
+import { AddCategory, GifGrid } from "./components";  // No es necesario colocar el /index para cargar todo lo que tenga en index de components js ya lo reconoce
 
 /* Este functional component lo podemos ver como si fuera
 nuestro lienzo, dentro de este vamos a meter los demas
